@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="icon" href="favicon.ico" type="image/png">
+    <title>Hackathon</title>
+</head>
+<body>
+
+    <div class="header" id="header">
+        <h1>Заголовок</h1>
+        <nav class="navigation">
+            <a href="#projects">Проекты</a>
+            <a href="#about">О нас</a>
+            <a href="#contacts">Контакты</a>
+        </nav>
+    </div>
+    
+    <div class="container">
+        
+        
+        <div class="projects" id="projects">
+            <h1>Проекты</h1> <hr>
+            <div class="project_container">
+                <div>
+                    <img class="project_image" src="img-placeholder.png" alt="">
+                </div>
+                <div>
+                    <img class="project_image" src="img-placeholder.png" alt="">
+                </div>
+                <div>
+                    <img class="project_image" src="img-placeholder.png" alt="">
+                </div>
+            </div>
+        </div>
+        
+        <div class="about" id="about">
+            <h1>О нас</h1>
+            <div class="about_container">
+                <div class="about_box">
+                    <div class="about_image_box">
+                        <img class="about_image" src="img-placeholder.png" alt="">
+                    </div>
+                    <div class="about_text_box">
+                        <h1>Имя</h1>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum dicta quas quam eveniet odit minima cum doloremque quaerat aperiam consequuntur incidunt quibusdam animi magnam, itaque dolorem, atque obcaecati, corrupti sed.</p>
+                    </div>
+                </div>
+                <div class="about_box">
+                    <div class="about_image_box">
+                        <img class="about_image" src="img-placeholder.png" alt="">
+                    </div>
+                    
+                    <div class="about_text_box">
+                        <h1>Имя</h1>
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Commodi quae possimus unde, dolore ipsa, magnam labore quo optio rem obcaecati quia incidunt! Suscipit natus dolor corrupti laudantium perferendis impedit expedita.</p>
+                    </div>
+                </div>
+                <div class="about_box">
+                    <div class="about_image_box">
+                        <img class="about_image" src="img-placeholder.png" alt="">
+                    </div>
+                    <div class="about_text_box">
+                        <h1>Имя</h1>
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Commodi quae possimus unde, dolore ipsa, magnam labore quo optio rem obcaecati quia incidunt! Suscipit natus dolor corrupti laudantium perferendis impedit expedita.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    
+    <div class="contacts" id="contacts">
+        <h3>Контакты</h3>
+        
+    </div>
+    
+    <div id="modal" class="modal">
+        <span class="close">×</span>
+        <img class="modal-content" id="modalImg"/>
+    </div>
+    
+    <div class="page_up">
+        <a href="#header">
+            <img width="50" height="50" src="https://img.icons8.com/ios-filled/50/send-letter--v1.png" alt="send-letter--v1"/>
+        </a>
+    </div>
+    
+    <script>
+        $(document).ready(function () {
+            const $modal = $('#modal');
+            const $modalImg = $('#modalImg');
+            const $closeBtn = $('.close');
+
+            $('.about_image').click(function () {
+                $modal.show();
+                $modalImg.attr('src', $(this).attr('src'));
+            });
+
+            $('.project_image').click(function () {
+                $modal.show();
+                $modalImg.attr('src', $(this).attr('src'));
+            });
+            
+            $closeBtn.click(function () {
+                $modal.hide();
+            }); 
+
+            $(window).on('click', function (e) {
+                if ($(e.target).is($modal)){ 
+                    $modal.hide();
+                }
+            });
+
+            $(window).on('scroll', function() {
+                var scrollPosition = $(this).scrollTop();
+                var viewportHeight = $(window).height();
+                var totalScrollableHeight = $('body').outerHeight() - viewportHeight;
+                if ((scrollPosition / totalScrollableHeight) >= 0.1) {
+                    $('.page_up').css("display","block");
+                } else {
+                    $('.page_up').css('display','none');
+                } 
+            });
+        });
+    </script>
+</body>
+</html>
