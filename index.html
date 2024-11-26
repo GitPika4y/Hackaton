@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <link rel="icon" href="favicon.ico" type="image/png">
+    <link rel="icon" href="icon.ico" type="image/png">
     <title>Hackathon</title>
 </head>
 <body>
 
-    <div class="header" id="header">
+    <div class="header mainBox" id="header">
         <h1>Заголовок</h1>
         <nav class="navigation">
             <a href="#projects">Проекты</a>
@@ -20,24 +20,26 @@
     </div>
     
     <div class="container">
-        
-        <div class="projects" id="projects">
-            <h1>Проекты</h1> <hr>
+        <div class="projects mainBox" id="projects">
+            <h1 class="boxTitle">Проекты</h1>
             <div class="project_container">
-                <div>
+                <fieldset class="project_image_box">
+                    <legend class="project_title">project 1</legend>
                     <img class="project_image" src="img-placeholder.png" alt="">
-                </div>
-                <div>
+                </fieldset>
+                <fieldset class="project_image_box">
+                    <legend class="project_title">project 2</legend>
                     <img class="project_image" src="img-placeholder.png" alt="">
-                </div>
-                <div>
+                </fieldset>
+                <fieldset class="project_image_box">
+                    <legend class="project_title">project 3</legend>
                     <img class="project_image" src="img-placeholder.png" alt="">
-                </div>
+                </fieldset>
             </div>
         </div>
         
-        <div class="about" id="about">
-            <h1>О нас</h1>
+        <div class="about mainBox" id="about">
+            <h1 class="boxTitle">О нас</h1>
             <div class="about_container">
                 <div class="about_box">
                     <div class="about_image_box">
@@ -72,8 +74,8 @@
 
     </div>
     
-    <div class="contacts" id="contacts">
-        <h3>Контакты</h3>
+    <div class="contacts mainBox" id="contacts">
+        <h1>Контакты</h1>
         
     </div>
     
