@@ -57,8 +57,7 @@ h1{
     border-radius: 2em;
 }
 .project_image:hover{
-    transform: scale(1.1,1.2) translate(-7%,5%);
-    margin: 8%;   
+    transform: scale(1.1,1.2);   
 }
 .about_container{
     display: flex;
