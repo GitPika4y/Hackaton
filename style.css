@@ -20,11 +20,13 @@ img{
     width: auto;
     height: 100%;
 }
-.mainBox{
+
+.main_box{
     width: 95%;
-    border: solid 5px #123c69;
+    border: solid 5px #3b6ba2;
     border-radius: 2em;
     background-color: #eee2dc;
+    box-shadow: 0 0 5px #6D839B;
 }
 .container{
     display: flex;
@@ -42,15 +44,22 @@ img{
     height: 100%;
     padding: 15px;
 }
+.header>h1{
+    font-size: 2.5em;
+    margin: 15px;
+    color: #402661;
+}
 h1{
     position: relative;
     text-indent: 1em;
-    color: black;
     text-align: center;
-    margin: 15px;
-    font-size: 30px;
-    font-weight: bolder;
+    color: #402661;
     font-family: "Rubik Mono One", monospace;
+}
+.box_title{
+    font-size: 2.3em;
+    margin: 20px;
+    color: #ac3b61;
 }
 .navigation{
     position: relative;
@@ -58,12 +67,12 @@ h1{
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 15px;
+    gap: 2em;
 }
 .navigation>a{
     text-decoration: none;
     color: cadetblue;
-    font: bold 1.5rem "Nunito", sans-serif;
+    font: 900 1.6rem "Nunito", sans-serif;
 }
 .project_container{
     margin-top: 20px;
@@ -75,13 +84,6 @@ h1{
     padding: 30px;
     gap: 5px;
 }
-.project_image{
-    transition: all 0.2s;
-    height: auto;
-    width: 100%;
-    border-radius: 2em;
-}
-
 .project_image_box{
     position: relative;
     border: none;
@@ -92,6 +94,12 @@ h1{
     min-width: 350px;
     box-shadow: 0 0 2em #bab2b5;
     background-color: transparent;
+    border-radius: 2em;
+}
+.project_image{
+    transition: all 0.2s;
+    height: auto;
+    width: 100%;
     border-radius: 2em;
 }
 .project_image_box:hover{
@@ -109,7 +117,7 @@ h1{
     text-align: center;
     width: 100%;
     display: inline-block;
-    color: #da5883;
+    color: #eee2dc;
     z-index:1;
     user-select: none;
 }
@@ -146,6 +154,7 @@ h1{
     display: flex;
     height: calc(100vh/3);
     min-height: 250px;
+    max-height:380px;
     width: auto;
     align-items: center;
     justify-content: center;
@@ -158,25 +167,34 @@ h1{
 .about_text_box{
     padding: 15px;
     display: inline-block;
-    text-indent: 2em;
     width: 50%;
 }
-.about_text_box>p{
-    word-break: keep-all;
-    font-size: 24px;
+p{
+    text-indent: 1.5em;
+    word-break: break-all;
+    font-size: 20px;
     font-family: "Nunito",sans-serif;
-    font-weight: bold;
+    font-weight: 900;
+    text-align: justify;
+    color: #123c69;
 }
 
-.contacts{
-    background-color: #bab2b5;
+.contacts_container{
     color: #ac3b61;
     padding: 10px;
+}
+.contacts_box{
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+.contacts_box>p{
+    width: 80%;
 }
 
 
 /*Если длина экрана менее 700px*/
-@media(max-width:780px){
+@media(max-width:900px){
     .about_box{
         flex-direction: column !important;
         align-items: center !important;
