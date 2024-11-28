@@ -11,7 +11,9 @@
 <body>
 
     <header class="header main_box" id="header">
-        <h1>Hackathon</h1>
+        <h1>
+            <a href="#">Hackathon</a>
+        </h1>
         <nav class="navigation">
             <a href="#projects">Проекты</a>
             <a href="#about">О нас</a>
@@ -24,17 +26,32 @@
         <div class="projects main_box" id="projects">
             <h1 class="box_title">Проекты</h1>
             <div class="project_container">
-                <fieldset class="project_image_box">
-                    <legend class="project_title">project 1</legend>
-                    <img class="project_image" src="img-placeholder.png" alt="">
+                <fieldset class="project_box">
+                    <div class="project_image_box">
+                        <legend class="project_title">project 1</legend>
+                        <img class="project_image" src="img-placeholder.png" alt="">
+                    </div>
+                    <div class="project_description hidden">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis aut laborum magnam nulla beatae corporis cumque labore, voluptatibus dolorem possimus quaerat eaque omnis quo, odio provident soluta expedita! Iste saepe nulla, similique itaque quas vel voluptate, animi nemo, ut nesciunt suscipit culpa vitae? Nihil hic ipsam id quae! A, suscipit?</p>
+                    </div>
                 </fieldset>
-                <fieldset class="project_image_box">
-                    <legend class="project_title">project 2</legend>
-                    <img class="project_image" src="img-placeholder.png" alt="">
+                <fieldset class="project_box">
+                    <div class="project_image_box">
+                        <legend class="project_title">project 2</legend>
+                        <img class="project_image" src="img-placeholder.png" alt="">
+                    </div>
+                    <div class="project_description hidden">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores in molestias tempora vitae natus quas, sequi quia nam architecto voluptates dolor neque iste odio unde libero omnis repellendus distinctio quisquam modi reiciendis deserunt temporibus ea dignissimos inventore. Quos rerum illo ratione iusto officiis sunt eveniet non ullam, optio reiciendis? Dicta?</p>
+                    </div>
                 </fieldset>
-                <fieldset class="project_image_box">
-                    <legend class="project_title">project 3</legend>
-                    <img class="project_image" src="img-placeholder.png" alt="">
+                <fieldset class="project_box">
+                    <div class="project_image_box">
+                        <legend class="project_title">project 3</legend>
+                        <img class="project_image" src="img-placeholder.png" alt="">
+                    </div>
+                    <div class="project_description hidden">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores in molestias tempora vitae natus quas, sequi quia nam architecto voluptates dolor neque iste odio unde libero omnis repellendus distinctio quisquam modi reiciendis deserunt temporibus ea dignissimos inventore. Quos rerum illo ratione iusto officiis sunt eveniet non ullam, optio reiciendis? Dicta?</p>
+                    </div>
                 </fieldset>
             </div>
         </div>
@@ -82,42 +99,67 @@
         </div>
     </footer>
     
-    <div id="modal" class="modal">
+    <!-- <div id="modal" class="modal">
         <span class="close">×</span>
         <img class="modal-content" id="modalImg"/>
-    </div>
+    </div> -->
     
-    <div class="page_up">
+    <di class="page_up">
         <a href="#header">
             <img src="https://img.icons8.com/ios-filled/50/send-letter--v1.png" alt="send-letter--v1"/>
         </a>
-    </div>
-    
+    </di>
+
     <script>
+        
         $(document).ready(function () {
             const $modal = $('#modal');
             const $modalImg = $('#modalImg');
             const $closeBtn = $('.close');
-
-            $('.about_image').click(function () {
-                $modal.show();
-                $modalImg.attr('src', $(this).attr('src'));
-            });
-
-            $('.project_image').click(function () {
-                $modal.show();
-                $modalImg.attr('src', $(this).attr('src'));
-            });
             
-            $closeBtn.click(function () {
-                $modal.hide();
-            }); 
+            // $('.about_image').click(function () {
+            //     $modal.show();
+            //     $modalImg.attr('src', $(this).attr('src'));
+            // });
+            
+            $('.project_box').click(function () {
+                $this = $(this)
+                $project_description = $(this).find(".project_description")
+                $project_image_box = $(this).find(".project_image_box")
 
-            $(window).on('click', function (e) {
-                if ($(e.target).is($modal)){ 
-                    $modal.hide();
+                if($this.hasClass("project_box_open")){ //Закрыт
+                    $this.removeClass("project_box_open")
+                    $(".project_box").not($this).removeClass("hidden")
+                    $project_description.addClass("hidden")
+                    $project_image_box.width("100%")
+                } else{         //Открыт
+                    $this.addClass("project_box_open")
+                    $(".project_box").not($this).addClass("hidden")
+                    $project_description.removeClass("hidden")
+                    $project_image_box.width("50%");
                 }
             });
+            
+            // $closeBtn.click(function () {
+            //     $modal.hide();
+            // }); 
+            
+            // $(window).on('click', function (e) {
+            //     if ($(e.target).is($modal)){ 
+            //         $modal.hide();
+            //     }
+            // });
+
+            $(".navigation>a").click(function(){
+                const el = $(this).attr("href");
+                $('.main_box').hide();
+                $(el).show();
+                $(".header").show();
+            })
+
+            $(".header>h1>a").click(function(){
+                $(".main_box").show();
+            })
 
             $(window).on('scroll', function() {
                 var scrollPosition = $(this).scrollTop();

@@ -43,11 +43,18 @@ img{
     align-items: center;
     height: 100%;
     padding: 15px;
+    flex-direction: column !important;
+    align-items: center;
 }
 .header>h1{
     font-size: 2.5em;
     margin: 15px;
+    text-indent: 0;
+}
+.header>h1>a{
     color: #402661;
+    text-decoration: none;
+    outline: none;
 }
 h1{
     position: relative;
@@ -63,35 +70,62 @@ h1{
 }
 .navigation{
     position: relative;
-    right: 5%;
+    width: 100%;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
     gap: 2em;
 }
 .navigation>a{
     text-decoration: none;
     color: cadetblue;
-    font: 900 1.6rem "Nunito", sans-serif;
+    font: 900 2rem "Nunito", sans-serif;
 }
+
 .project_container{
     margin-top: 20px;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     width: 100%;
     padding: 30px;
     gap: 5px;
+    overflow: hidden;
 }
-.project_image_box{
+.project_box{
+    display: flex;
+    flex-direction: row;
     position: relative;
     border: none;
-    transition: all 0.2s;
     margin: 15px;
     width: calc(100vw/2.8);
     max-width: 500px;
     min-width: 350px;
+    transition: all 0.2s;
+    justify-content: center;
+    align-items: center;
+}
+.project_box_open{
+    transition: all 0.2s;
+    width: 100%;
+    max-width: 100%;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.project_description{
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.project_description>p{
+    width: 80%;
+}
+.project_image_box{
+    margin: 30px;
+    position: relative;
+    transition: all 0.2s;
     box-shadow: 0 0 2em #bab2b5;
     background-color: transparent;
     border-radius: 2em;
@@ -104,7 +138,7 @@ h1{
 }
 .project_image_box:hover{
     transform: scale(1.1,1.1);
-    z-index: 2;
+    z-index: 0;
 }
 .project_title{
     font-family: "Nunito",sans-serif;
@@ -177,6 +211,7 @@ p{
     font-weight: 900;
     text-align: justify;
     color: #123c69;
+    user-select: none;
 }
 
 .contacts_container{
@@ -194,13 +229,12 @@ p{
 
 
 /*Если длина экрана менее 700px*/
-@media(max-width:900px){
-    .about_box{
-        flex-direction: column !important;
-        align-items: center !important;
-    }
+@media(max-width:1300px){
     .about_image{
         width: 100% !important;
+    }
+    .about_box{
+        flex-direction: column;
     }
     .about_text_box{
         width: 100%;
@@ -218,8 +252,9 @@ p{
         flex-direction: column;
         align-items: center;
     }
-    .project_image_box{
-        width: 300px;
+    .project_box{
+        min-width: 300px;
+        flex-direction: column;
     }
 }
 
@@ -276,4 +311,9 @@ p{
 .close:hover, .close:focus {
     color: red;
     text-decoration: none;
+}
+
+
+.hidden{
+    display: none;
 }
