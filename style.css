@@ -18,7 +18,7 @@ body{
     gap: 10px;
     padding: 2em;
     /* background-color: #edc7b7; */
-    background-image: url("BG_img.gif");
+    background-image: url("images/BG_img.gif");
     background-attachment: fixed;
     background-size: contain;
 }
@@ -41,7 +41,7 @@ img{
     left: 0;
     width: 100%;
     height: 100%;
-    background: url("BG_img.gif") no-repeat center/cover;
+    background: url("images/BG_img.gif") no-repeat center/cover;
     filter:blur(10px); /*Размываем фоновый элемент */
     z-index: -1  ; /* Отправляем фон за контент */
 }
@@ -155,6 +155,7 @@ h1{
     transition: all 0.2s;
     height: auto;
     width: 100%;
+    max-height: 300px;
     border-radius: 2em;
 }
 .project_image_box:hover{
@@ -172,7 +173,7 @@ h1{
     text-align: center;
     width: 100%;
     display: inline-block;
-    color: #eee2dc;
+    color: #482b6d;
     z-index:1;
     user-select: none;
 }
@@ -229,15 +230,15 @@ h1{
     text-shadow: 0 0 15px #2b122d; 
 }
 p{
-    text-indent: 1.5em;
-    word-break: break-all;
+    word-break: keep-all;
     font-size:  1.8em;
     font-family: "Nunito",sans-serif;
     font-weight: 900;
     text-align: justify;
     color: #123c69;
     user-select: none;
-    text-shadow: 0 0 15px #190493; 
+    text-shadow: 0 0 15px #190493;
+    text-align: center;
 }
 
 .contacts_container{
@@ -247,11 +248,16 @@ p{
     padding: 20px;
     display: flex;
     justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 .contacts_box>p{
     width: 80%;
 }
-
+.mail{
+    color: cadetblue;
+    font: ;
+}
 
 /*Если длина экрана менее 700px*/
 @media(max-width:1300px){
