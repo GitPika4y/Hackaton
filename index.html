@@ -12,7 +12,7 @@
 
     <header class="header main_box" id="header">
         <h1>
-            <a href="#">Hackathon</a>
+            Hackathon
         </h1>
         <nav class="navigation">
             <a href="#projects">Проекты</a>
@@ -99,17 +99,23 @@
         </div>
     </footer>
     
-    <!-- <div id="modal" class="modal">
+    <div id="modal" class="modal">
         <span class="close">×</span>
         <img class="modal-content" id="modalImg"/>
-    </div> -->
+        <p style="text-align: center; margin: 20px; font-size: 2.5em;">Мы в последний день</p>
+    </div>
     
-    <di class="page_up">
+    <div class="page_up">
         <a href="#header">
-            <img src="https://img.icons8.com/ios-filled/50/send-letter--v1.png" alt="send-letter--v1"/>
+            <img src="https://img.icons8.com/?size=100&id=g63DhUA82CEw&format=png&color=000000" alt="send-letter--v1"/>
         </a>
-    </di>
+    </div>
 
+    <div class="refresh_page hidden">
+        <a href="#">
+            <img src="https://img.icons8.com/?size=100&id=11684&format=png&color=9231be" alt="">
+        </a>
+    </div>
     <script>
         
         $(document).ready(function () {
@@ -117,10 +123,13 @@
             const $modalImg = $('#modalImg');
             const $closeBtn = $('.close');
             
-            // $('.about_image').click(function () {
-            //     $modal.show();
-            //     $modalImg.attr('src', $(this).attr('src'));
-            // });
+            $('.header>h1').click(function () {
+                $modal.show();
+                $modalImg.attr('src', 'banan.gif');
+            });
+            $closeBtn.click(function () {
+                $modal.hide();
+            });
             
             $('.project_box').click(function () {
                 $this = $(this)
@@ -136,29 +145,23 @@
                     $this.addClass("project_box_open")
                     $(".project_box").not($this).addClass("hidden")
                     $project_description.removeClass("hidden")
-                    $project_image_box.width("50%");
+                    $project_image_box.width("40%");
+
                 }
             });
             
-            // $closeBtn.click(function () {
-            //     $modal.hide();
-            // }); 
-            
-            // $(window).on('click', function (e) {
-            //     if ($(e.target).is($modal)){ 
-            //         $modal.hide();
-            //     }
-            // });
 
             $(".navigation>a").click(function(){
                 const el = $(this).attr("href");
                 $('.main_box').hide();
                 $(el).show();
                 $(".header").show();
+                $('.refresh_page').removeClass('hidden');
             })
 
-            $(".header>h1>a").click(function(){
+            $(".refresh_page").click(function(){
                 $(".main_box").show();
+                $(this).addClass('hidden')
             })
 
             $(window).on('scroll', function() {
