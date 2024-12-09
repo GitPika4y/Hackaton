@@ -1,3 +1,2 @@
 # Hackaton
-favicon-иконка сайта  
-placeholder-картинки
+Сайт для задания Hackaton 2024 года TASKILLS
