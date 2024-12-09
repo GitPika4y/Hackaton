@@ -1,3 +1,3 @@
 # Hackaton
-favicon-иконка сайта
+favicon-иконка сайта  
 placeholder-картинки
